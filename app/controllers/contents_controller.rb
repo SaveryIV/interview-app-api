@@ -8,9 +8,12 @@ class ContentsController < ApplicationController
   end
 
   def show
+    total_stars = @content.ratings.sum(:stars)
+
     render json: {
       content: @content,
-      average_rating: @content.average_rating
+      average_rating: @content.average_rating,
+      total_stars: total_stars
     }, status: :ok
   end
 
@@ -37,10 +40,14 @@ class ContentsController < ApplicationController
   end
 
   def update
-    if @content.update(content_params)
-      render json: @content, status: :ok
+    if @conten.author = @current_user
+      if @content.update(content_params)
+        render json: @content, status: :ok
+      else
+        render json: @content.errors, status: :unprocessable_entity
+      end
     else
-      render json: @content.errors, status: :unprocessable_entity
+      render json: { meesage: "Unauthorized action" }, status: :forbidden
     end
   end
 
