@@ -21,12 +21,17 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.contents.destroy_all
-    @user.ratings.destroy_all
-    if @user.destroy
-      render json: { message: 'User successfully deleted', status: :destroyed }, status: :ok
+    if @user.id == @current_user.id
+      @user.contents.destroy_all
+      @user.ratings.destroy_all
+
+      if @user.destroy
+        render json: { message: 'User successfully deleted' }, status: :ok
+      else
+        render json: { error: 'Failed to delete user' }, status: :unprocessable_entity
+      end
     else
-      render json: { error: 'Failed to delete user' }, status: :unprocessable_entity
+      render json: { error: 'Unauthorized action' }, status: :forbidden
     end
   end
 
