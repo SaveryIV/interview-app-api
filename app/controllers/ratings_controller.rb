@@ -11,7 +11,6 @@ class RatingsController < ApplicationController
     else
       @rating = @content.ratings.build(rating_params)
       @rating.user = @current_user
-      @rating.stars ||= 0
   
       if @rating.save
         render json: @rating, status: :created
@@ -37,10 +36,14 @@ class RatingsController < ApplicationController
   end
 
   def update
-    if @rating.update(rating_params)
-      render json: @rating, status: :ok
+    if @rating.user = @current_user
+      if @rating.update(rating_params)
+        render json: @rating, status: :ok
+      else
+        render json: @rating.errors, status: :unprocessable_entity
+      end
     else
-      render json: @rating.errors, status: :unprocessable_entity
+      render json: { message: "Unauthorized to change the rating" }, status: :forbidden
     end
   end
 
