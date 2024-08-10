@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
- resources :users do
-  resources :contents do
-    resources :ratings
+  get 'welcome/index'
+  root to: 'welcome#index'
+  resources :users do
+    resources :contents do
+      resources :ratings
+    end
   end
- end
- post "login", to: "authentication#login"
- post 'logout', to: 'authentication#logout'
+  post "login", to: "authentication#login"
+  post 'logout', to: 'authentication#logout'
 end
