@@ -40,7 +40,7 @@ class ContentsController < ApplicationController
   end
 
   def update
-    if @conten.author = @current_user
+    if @content.author == @current_user
       if @content.update(content_params)
         render json: @content, status: :ok
       else
