@@ -16,7 +16,7 @@ class AuthenticationController < ApplicationController
       BlacklistedToken.create!(token: params[:token], expires_at: 1.hour.from_now)
       head :no_content
     else
-      render json: { error: 'Token no proporcionado' }, status: :bad_request
+      render json: { error: 'Token havent being recived' }, status: :bad_request
     end
   end
 end
