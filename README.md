@@ -3,11 +3,11 @@
 ## Introduction
 Hey there! I'm thrilled to introduce you to this amazing API 😎. It's a fully functional resource that enables you to create a platform for uploading and rating user-generated content👽👀. It's interactive🎯, user-friendly🙌, and ensures data security🔑. Remember, it's just as important to keep your password safe. And let's not forget... It's really cool!🏄‍♂️🏄‍♂️
 
-## Link to API Docs and Production
+## Link to API Docs and Production 🔗🌎
   Deploy on production: [Direct Link](https://interview-app-api.onrender.com) <br>
   Link to Docs: [Postman Docs](https://documenter.getpostman.com/view/29041377/2sA3s3Gqy9)
 
-## How to Set Up the Project Locally
+## How to Set Up the Project Locally ❓❓
 
 In case you want to take it by yourself and test it in your local environment, here are the steps you need to take:
 
@@ -37,7 +37,7 @@ In case you want to take it by yourself and test it in your local environment, h
 6. **Test the API**
    You can test the API endpoints using a tool like Postman or cURL. Make sure to verify the functionality of key endpoints such as user creation, content upload, and rating.
 
-   ## Troubleshooting
+   ## Troubleshooting 🐞🐞🔫
 
     If you encounter any issues, check the following:
 
